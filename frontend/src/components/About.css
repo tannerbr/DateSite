@@ -1,0 +1,97 @@
+.about-page {
+  padding: 4rem 2rem;
+  background-color: #fffdfd;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: #222;
+  position: relative;
+}
+
+.about-title::after {
+  content: "💘";
+  font-size: 1.8rem;
+  position: absolute;
+  margin-left: 8px;
+  top: 0;
+}
+
+.about-subtext {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0.3rem 0;
+}
+
+.about-subtext span {
+  font-weight: 600;
+  color: #222;
+}
+
+.about-intro {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+  text-align: left;
+  max-width: 600px;
+  margin: 1.5rem auto;
+}
+
+.about-list li {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  background-color: #f9f9ff;
+  border-left: 5px solid #646cff;
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-list li span {
+  font-weight: 600;
+  color: #222;
+}
+
+.about-list li:hover {
+  transform: translateX(6px);
+  box-shadow: 0 6px 18px rgba(100, 108, 255, 0.15);
+  background-color: #f3f4ff;
+}
+
+.about-list li::before {
+  content: "✨";
+  margin-right: 8px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-intro {
+    font-size: 1.2rem;
+  }
+
+  .about-list li {
+    font-size: 1rem;
+  }
+}

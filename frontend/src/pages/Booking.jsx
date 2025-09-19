@@ -27,10 +27,23 @@ const Booking = () => {
   const generateSMSLink = () => {
     let message = "";
 
+    // Convert time from "HH:mm" to "h:mm AM/PM"
+    const formatTime = (timeStr) => {
+      if (!timeStr) return "";
+      const [hourStr, minuteStr] = timeStr.split(":");
+      let hour = parseInt(hourStr, 10);
+      const minute = minuteStr;
+      const ampm = hour >= 12 ? "PM" : "AM";
+      hour = hour % 12 || 12;
+      return `${hour}:${minute} ${ampm}`;
+    };
+
+    const formattedTime = formatTime(formData.time);
+
     if (formData.option === "Surprise Me!") {
       message = `Hey Tanner! 🎉 Surprise me with a fun date idea!`;
     } else {
-      message = `Hey Tanner! I saw your funny website and booked a ${formData.option} on ${formData.date} at ${formData.time}. Can't wait! 😎`;
+      message = `Hey Tanner! I saw your funny website and booked a ${formData.option} on ${formData.date} at ${formattedTime}. Can't wait! 😎`;
     }
 
     if (formData.instagram) {

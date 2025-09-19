@@ -7,6 +7,7 @@ const Booking = () => {
     date: "",
     time: "",
     option: "",
+    instagram: "",
   });
 
   const [readyToText, setReadyToText] = useState(false);
@@ -21,7 +22,7 @@ const Booking = () => {
     setReadyToText(true);
   };
 
-  const phoneNumber = "+14259199024"; // <-- Replace with YOUR number
+  const phoneNumber = "+14259199024"; // <-- your number
 
   const generateSMSLink = () => {
     let message = "";
@@ -30,6 +31,10 @@ const Booking = () => {
       message = `Hey Tanner! 🎉 Surprise me with a fun date idea!`;
     } else {
       message = `Hey Tanner! I saw your funny website and booked a ${formData.option} on ${formData.date} at ${formData.time}. Can't wait! 😎`;
+    }
+
+    if (formData.instagram) {
+      message += ` My Instagram is @${formData.instagram}`;
     }
 
     return `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
@@ -101,6 +106,18 @@ const Booking = () => {
             </select>
           </label>
 
+          {/* Instagram */}
+          <label>
+            Your Instagram Handle:
+            <input
+              type="text"
+              name="instagram"
+              placeholder="e.g. tannerbriggs"
+              value={formData.instagram}
+              onChange={handleChange}
+            />
+          </label>
+
           <button type="submit" className="booking-button">
             Get Ready to Text Me 📱
           </button>
@@ -108,9 +125,7 @@ const Booking = () => {
       ) : (
         <div className="booking-text">
           <h3>Almost Done 🎉</h3>
-          <p>
-            Click below to open your texting app and send me the details!
-          </p>
+          <p>Click below to open your texting app and send me the details!</p>
           <a href={generateSMSLink()} className="text-button">
             📱 Text Tanner Now
           </a>
